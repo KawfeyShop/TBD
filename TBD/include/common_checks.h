@@ -4,7 +4,7 @@
 #include <windows.h>
 
 // Function prototypes for all checks
-void check_sticky_keys();
+bool StickyKeysEnabled();
 void check_ntlm_usage();
 
 // read Registry value function?

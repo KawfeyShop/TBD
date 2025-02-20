@@ -6,7 +6,12 @@ int main() {
     write_to_log_file("Tool initialized");
 
     // Calling check functions
-    check_sticky_keys();
+    if (StickyKeysEnabled()) {
+        printf("sticky key on");
+    }
+    else {
+        printf("sticky keys off");
+    }
     check_ntlm_usage();
 
     LOG_INFO("Vulnerability checker finished.");
