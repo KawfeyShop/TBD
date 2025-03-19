@@ -1,0 +1,49 @@
+---
+- name: Update Git repository, compile solution, and run executable
+  hosts: windows
+  vars:
+    branch: "main"
+    solution_path: "C:/Users/Developer/TBD/TBD.sln"
+    exe_path: "C:/Users/Developer/TBD/Project1/x64/Release/Project1.exe"  # Path to the compiled .exe
+  tasks:
+    - name: Fetch updates for all branches
+      win_command: git fetch --all
+      args:
+        chdir: "C:/Users/Developer/TBD"
+      register: git_fetch_output
+
+    - name: Pull latest updates for the specified branch
+      win_command: git pull origin {{ branch }}
+      args:
+        chdir: "C:/Users/Developer/TBD"
+      register: git_pull_output
+
+    - name: Display fetch result
+      debug:
+        var: git_fetch_output.stdout_lines
+
+    - name: Display pull result
+      debug:
+        var: git_pull_output.stdout_lines
+
+    - name: Run Developer Command Prompt and compile solution
+      win_command: MSBuild {{ solution_path }} /p:Configuration=Release
+      args:
+        chdir: "C:/Users/Developer/TBD"
+      register: msbuild_output
+
+    - name: Display MSBuild output
+      debug:
+        var: msbuild_output.stdout_lines
+
+    - name: Run the compiled executable
+      win_command: "{{ exe_path }}"
+      args:
+        chdir: "C:/Users/Developer/TBD/Project1/x64/Release"
+      register: exe_output
+      ignore_errors: yes  # In case the program exits with a nonzero status
+
+    - name: Display executable output
+      debug:
+        var: exe_output.stdout_lines
+
