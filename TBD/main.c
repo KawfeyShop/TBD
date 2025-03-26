@@ -8,6 +8,7 @@ int main() {
     // Calling check functions
     check_sticky_keys();
     check_ntlm_usage();
+    check_llmnr();
 
     LOG_INFO("Vulnerability checker finished.");
     write_to_log_file("Tool completed successfully");
