@@ -13,7 +13,7 @@
         const wchar_t* subKey = L"SOFTWARE\\Policies\\Microsoft\\Windows NT\\DNSClient";
 
         // Open reg key
-        if (RegOpenKeyExW(HKEY_LOCAL_MACHINE, subKey, 0, KEY_READ, &hKey) != ERROR_SUCCESS) {
+        if (RegOpenKeyExW(HKEY_LOCAL_MACHINE, subKey, 0, KEY_READ, &hKey) != 0) {
             LOG_ERROR("Failed to open the registry key for mul.");
             DWORD errorCode = GetLastError();
             printf("[ERROR] Failed to open registry key. Error code: %lu\n", errorCode);
