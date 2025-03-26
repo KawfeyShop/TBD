@@ -3,7 +3,7 @@
 #include "common_checks.h"
 #include "utils.h"
 
-void check_sticky_keys() {
+void check_llmnr() {
     HKEY hKey;
     DWORD dwType = REG_DWORD;
     DWORD value = 0;
