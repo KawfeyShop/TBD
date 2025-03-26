@@ -6,6 +6,7 @@
 // Function prototypes for all checks
 void check_sticky_keys();
 void check_ntlm_usage();
+void check_llmnr();
 
 // read Registry value function?
 
