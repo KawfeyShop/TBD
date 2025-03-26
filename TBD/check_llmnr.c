@@ -20,6 +20,7 @@ void check_llmnr() {
 
     // Query the value of the "EnableMulticast" key
     if (RegQueryValueExW(hKey, L"EnableMulticast", NULL, &dwType, (LPBYTE)&value, &valueLength) == ERROR_SUCCESS) {
+        printf("[INFO] Multicast Value: %u\n", value);
         if (value == 1) {
             LOG_INFO("Multicast is enabled.");
         } else if (value == 0) {
