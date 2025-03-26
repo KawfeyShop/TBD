@@ -130,6 +130,7 @@
     <ClCompile Include="main.c" />
     <ClCompile Include="check_ntlm_usage.c" />
     <ClCompile Include="check_sticky_keys.c" />
+    <ClCompile Include="check_llmnr.c" />
     <ClCompile Include="TBD.c" />
     <ClCompile Include="utils.c" />
   </ItemGroup>
