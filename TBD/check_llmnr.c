@@ -30,7 +30,7 @@ void check_llmnr() {
         }
     }
     else {
-        LOG_ERROR("Failed to query the registry value.");
+        LOG_ERROR("Failed to query the registry value for multicast.");
     }
 
     // Close the registry key
