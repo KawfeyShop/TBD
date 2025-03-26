@@ -16,7 +16,6 @@ void check_ntlm_usage() {
     if (RegOpenKeyExW(HKEY_LOCAL_MACHINE, subKey, 0, KEY_READ, &hKey) != ERROR_SUCCESS) {
         fprintf(stderr, "[ERROR] Failed to open registry key: %ls\n", subKey);
         fprintf(stderr, "[ERROR] Or key doesnt exist.");
-        return;
     }
 
     // Query the registry value

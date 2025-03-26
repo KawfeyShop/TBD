@@ -14,8 +14,7 @@ void check_llmnr() {
 
     // Open reg key
     if (RegOpenKeyExW(HKEY_LOCAL_MACHINE, subKey, 0, KEY_READ, &hKey) != ERROR_SUCCESS) {
-        LOG_ERROR("Failed to open the registry key.");
-        return;
+        LOG_ERROR("Failed to open the registry key for mul.");
     }
 
     // Query the value of the "EnableMulticast" key
